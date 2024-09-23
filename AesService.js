@@ -26,7 +26,7 @@ const iv =  'g5AoAjmzGa5vKPUX/RytjA==';
         const key_in_bytes = Buffer.from(cryptkey, 'base64')
         const iv_in_bytes = Buffer.from(iv,'base64');
         let decipher = crypto.createDecipheriv('aes-256-cbc',key_in_bytes, iv_in_bytes)
-        decipher.setAutoPadding(false)
+        decipher.setAutoPadding(true)
         let decoded  = decipher.update(encryptdata,'base64','utf8') //base64 , hex
         decoded  += decipher.final('utf8')
         return decoded
